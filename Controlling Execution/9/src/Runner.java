@@ -1,17 +1,21 @@
 public class Runner {
 
-    static void fibonacci(int a){
-        int buff;
-        int num1 = 0, num2 = 1;
-        System.out.println("Fibonacci number " + a + " =\n" + num1 + "\n" + num2 + " ");
-        for (int i = 2; i < a; ++i) {
-            buff = num1 + num2;
-            System.out.println(buff);
-            num1 = num2;
-            num2 = buff;
-        }
+    static int fibonacci(int n)
+    {
+        if (n <= 1)
+            return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
     public static void main(String[] args) {
-        fibonacci(5);
+        int n = 20;//entered value
+        if (n <= 0){
+            System.out.println("The entered value cannot be negative or zero. Calculations are impossible");
+        }else{
+            System.out.println("Fibonacci number sequence for " + n + ": ");
+            for (int i = 0; i < n ; i++) {
+                System.out.println(fibonacci(i));
+            }
+        }
+
     }
 }
