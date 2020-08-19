@@ -4,12 +4,12 @@
 
 
 public class Runner {
-    static Person person1 = new Person();
-    static Person person2 = new Person();
+
+
     public static void main(String[] args) {
         System.out.println("main");
         Person.info();
-        
+
 
     }
 

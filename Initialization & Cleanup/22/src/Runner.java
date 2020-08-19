@@ -12,22 +12,22 @@ public class Runner {
             //System.out.println("values " + paperCurrency + " ordinal " + paperCurrency.ordinal());
             switch (paperCurrency){
                 case ONE:
-                    System.out.println("1");
+                    System.out.println(paperCurrency.getCost());
                     break;
                 case TWO:
-                    System.out.println("2");
+                    System.out.println(paperCurrency.getCost());
                     break;
                 case FIVE:
-                    System.out.println("5");
+                    System.out.println(paperCurrency.getCost());
                     break;
                 case TEN:
-                    System.out.println("10");
+                    System.out.println(paperCurrency.getCost());
                     break;
                 case TWENTY:
-                    System.out.println("20");
+                    System.out.println(paperCurrency.getCost());
                     break;
                 case FIFTY:
-                    System.out.println("50");
+                    System.out.println(paperCurrency.getCost());
                     break;
                 default:break;
             }

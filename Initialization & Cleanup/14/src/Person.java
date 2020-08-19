@@ -1,4 +1,5 @@
 public class Person {
+    
     static String name = "Valentin";
     static String surname;
     static {
