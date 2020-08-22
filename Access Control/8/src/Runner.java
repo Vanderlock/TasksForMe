@@ -7,11 +7,11 @@
 import cm.*;
 public class Runner {
     public static void main(String[] args) {
-        for (int i=0; i < 6; i++){
+        for (int i=0; i < 7; i++){
             Connection conOne = ConnectionManager.getConnection();
         }
 
-        System.out.println(ConnectionManager.getConnectionsNumber());
+        System.out.println("Connections created: " + ConnectionManager.getConnectionsNumber());
     }
 }
 

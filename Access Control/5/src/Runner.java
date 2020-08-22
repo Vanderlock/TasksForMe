@@ -19,5 +19,15 @@ public class Runner {
         test.printB();
         //test.printC(); private, can`t use this
         test.printD();
+
+        Test test2 = new Test();
+        test2.setA(20);
+        test2.setB(30);
+        test2.setC(40);
+        test2.setD(50);
+        System.out.println(test2.getA());
+        System.out.println(test2.getB());
+        System.out.println(test2.getC());
+        System.out.println(test2.getD());
     }
 }

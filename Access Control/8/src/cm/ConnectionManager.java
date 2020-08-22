@@ -15,15 +15,14 @@ public class ConnectionManager {
     }
 
     public static Connection getConnection(){
-
-        if (connectionsNumber < balance){
+        try {
             conArray[connectionsNumber] = new Connection();
-            System.out.println("Connection added. Number of connections: " + connectionsNumber);
+            System.out.println("Connection added. Number of connections: " + (connectionsNumber+1));
             return conArray[connectionsNumber++];
+        }catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Returned null, balance used up");
+            return null;
         }
-        System.out.println("Returned null");
-        return null;
-
     }
 
     public static int getConnectionsNumber(){
