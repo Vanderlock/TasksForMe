@@ -14,7 +14,7 @@ public class Runner {
         r.print();
     }
     public static void main(String[] args) {
-        Skyscraper skyscraper = new Skyscraper();
+        Basement skyscraper = new Skyscraper();
         Runner.downcast(skyscraper);
         Cottage cottage = new Cottage();
         Runner.useAbstract(cottage);

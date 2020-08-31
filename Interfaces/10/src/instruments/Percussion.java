@@ -1,15 +1,15 @@
 package instruments;
 
 import enums.Note;
-import interfaces.Instrument;
+
 import interfaces.Playable;
 
-public class Percussion implements Instrument, Playable {
-
+public class Percussion implements Playable {
+    @Override
     public void play(Note n) {
         System.out.println(this + ".play:" + n);
     }
-
+    @Override
     public String toString() {
         return "instruments.Percussion";
     }

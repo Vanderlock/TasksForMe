@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.nio.CharBuffer;
 
 public class AdaptedRandomChars extends RandomChars implements Readable{
-    private int count;
+    int count;
     public AdaptedRandomChars(int count){
         this.count = count;
     }

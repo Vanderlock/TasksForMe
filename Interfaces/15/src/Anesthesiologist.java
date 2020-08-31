@@ -23,7 +23,5 @@ public class Anesthesiologist extends Doctor implements Workup {
     public void zz() {
 
     }
-    public void doc() {
 
-    }
 }
