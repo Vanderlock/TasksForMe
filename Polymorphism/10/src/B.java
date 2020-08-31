@@ -1,5 +1,5 @@
 public class B extends A {
-    @Override protected void g(){
+    @Override void g(){
         System.out.println("b.g()");
     }
 }

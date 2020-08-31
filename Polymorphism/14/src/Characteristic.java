@@ -1,5 +1,5 @@
 public class Characteristic {
-    private String s;
+    String s;
 
     public Characteristic(String s) {
         this.s = s;

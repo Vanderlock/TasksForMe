@@ -1,7 +1,5 @@
 public class Shared {
-    private int refCount = 0;
-	private static long counter = 0;
-	private final long id = counter++;
+    int refCount = 0;
 	public Shared() {
         System.out.println("Creating " + this);
 	}
@@ -9,7 +7,7 @@ public class Shared {
 	    refCount++;
 	}
 	public String toString() {
-	    return "Shared " + id;
+	    return "Shared " ;
 	}
 	public void showRefCount() {
         System.out.println("refcount = " + refCount); }

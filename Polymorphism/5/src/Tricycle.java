@@ -1,8 +1,13 @@
 public class Tricycle extends Cycle{
-    private String name = "Tricycle";
-    private int wheels = 3;
-    public int wheels(){
+    String name = "Tricycle";
+    int wheels = 3;
+    @Override
+    public int getWheels(){
         return wheels;
+    }
+    @Override
+    public void travel(Cycle c) {
+        System.out.println("Tricycle.ride() " + c.getWheels() + " Wheels");
     }
     public String toString() {
         return this.name;

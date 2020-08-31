@@ -1,7 +1,7 @@
 import java.util.*;
 class RandomRodentGenerator {
-    protected Shared shared = new Shared();
-    private Random rand = new Random();
+    Shared shared = new Shared();
+    Random rand = new Random();
     public Rodent next() {
         switch(rand.nextInt(3)) {
             default:

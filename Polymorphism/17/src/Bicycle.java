@@ -1,8 +1,10 @@
 public class Bicycle extends Cycle {
-    private String name = "Bicycle";
+    String name = "Bicycle";
+    @Override
     public void balance(){
-        System.out.println("balance bicycle");
+        System.out.println("Balance bicycle");
     }
+
     public String toString() {
         return this.name;
     }

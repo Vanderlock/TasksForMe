@@ -10,7 +10,8 @@
 // Now add member objects to both the base and derived classes and show the order
 // in which their initialization occurs during construction.
 
-
+//Q:  a little confused about default as first item, and where and how you use this fields in Mouse class?
+//A: I created an object "C" with which I was able to implement the constructor of the "Characteristic" class. The same goes for "Description"
 
 
 public class Runner {

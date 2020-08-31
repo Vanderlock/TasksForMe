@@ -1,8 +1,8 @@
 public class A {
-    protected void f(){
+    void f(){
         System.out.println("a.f()");
     }
-    protected void g(){
+    void g(){
         System.out.println("a.g()");
     }
 }

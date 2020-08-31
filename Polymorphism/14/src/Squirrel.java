@@ -1,18 +1,18 @@
 public class Squirrel extends  Rodent{
-    private String name = "Squirrel";
-    private Characteristic c = new Characteristic("climbs trees");
-    private Description d = new Description("likes nuts");
+    String name = "Squirrel";
+    Characteristic c = new Characteristic("climbs trees");
+    Description d = new Description("likes nuts");
     Squirrel(Shared shared) {
         super(shared);
         System.out.println("Squirrel()");
     }
-    protected void eat() {
+    void eat() {
         System.out.println("Squirrel.eat()");
     }
-    protected void run() {
+    void run() {
         System.out.println("Squirrel.run()");
     }
-    protected void sleep() {
+    void sleep() {
         System.out.println("Squirrel.sleep()");
     }
     public String toString() {

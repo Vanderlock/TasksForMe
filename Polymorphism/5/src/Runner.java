@@ -6,16 +6,16 @@
 
 
 public class Runner {
-    public static void ride(Cycle c) {
-        c.travel(c);
-        System.out.println("wheels: " + c.wheels());
-    }
+
     public static void main(String[] args) {
-        Unicycle u = new Unicycle();
-        Bicycle b = new Bicycle();
-        Tricycle t = new Tricycle();
-        ride(u);
-        ride(t);
-        ride(b);
+        Cycle u = new Unicycle();
+        Cycle b = new Bicycle();
+        Cycle t = new Tricycle();
+
+        u.ride(u);
+        b.ride(b);
+        t.ride(t);
+        //b.travel(b);
+
     }
 }

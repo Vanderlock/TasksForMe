@@ -1,12 +1,18 @@
 public class Cycle {
-    private String name = "Cycle";
-    private int wheels = 0;
-    public static void travel(Cycle c) {
-        System.out.println("Cycle.ride() " + c);
+    String name = "Cycle";
+    int wheels = 0;
+
+    public void ride(Cycle c) {
+        c.travel(c);
+        //System.out.println("wheels: " + c.getWheels());
     }
-    public int wheels(){
+    public void travel(Cycle c) {
+        System.out.println("Cycle.ride() " + c.getWheels() + " Wheels");
+    }
+    public int getWheels(){
         return wheels;
     }
+
     public String toString() {
         return this.name;
     }

@@ -1,5 +1,5 @@
 public class Description {
-    private String s;
+    String s;
 
     public Description(String s) {
         this.s = s;

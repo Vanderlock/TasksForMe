@@ -1,18 +1,18 @@
 public class Rodent {
-    private String name = "Rodent";
-    private Characteristic c = new Characteristic("has tail");
-    private Description d = new Description("small mammal");
+    String name = "Rodent";
+    Characteristic c = new Characteristic("has tail");
+    Description d = new Description("small mammal");
 
     public Rodent() {
         System.out.println("Rodent()");
     }
-    protected void eat(){
+    void eat(){
         System.out.println("Rodent eat");
     }
-    protected void run(){
+    void run(){
         System.out.println("Rodent run");
     }
-    protected void sleep(){
+    void sleep(){
         System.out.println("Rodent sleep");
     }
     public String toString(){

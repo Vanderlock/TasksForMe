@@ -1,6 +1,6 @@
 import java.util.*;
 class RandomRodentGenerator {
-    private Random rand = new Random();
+    Random rand = new Random();
     public Rodent next() {
         switch(rand.nextInt(3)) {
             default:

@@ -1,8 +1,14 @@
 public class Cycle {
-    private String name = "Cycle";
-    public static void travel(Cycle c) {
-        System.out.println("Cycle.ride() " + c);
+    String name = "Cycle";
+    public void ride(Cycle c) {
+        System.out.println(c + "ride");
+
     }
+    public void balance(){
+        System.out.println("No balance");
+    }
+
+
     public String toString() {
         return this.name;
     }

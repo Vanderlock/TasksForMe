@@ -1,9 +1,15 @@
 public class Unicycle extends Cycle{
-    private String name = "Unicycle";
-    private int wheels = 1;
-    public int wheels(){
+    String name = "Unicycle";
+    int wheels = 1;
+    @Override
+    public int getWheels(){
         return wheels;
     }
+    @Override
+    public void travel(Cycle c) {
+        System.out.println("Unicycle.ride() " + c.getWheels() + " Wheels");
+    }
+
     public String toString() {
         return this.name;
     }

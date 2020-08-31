@@ -15,15 +15,17 @@ public class Runner {
 
     public static void main(String[] args) {
         Cycle[] ride = {new Unicycle(),new Bicycle(),new Tricycle()};
-//        for (Cycle c: ride) {
-//            c.balance();
-//        }
-        ((Unicycle)ride[0]).balance();
-        ((Bicycle)ride[1]).balance();
-        // Compile time error: no balance() in Tricycle:
-        // ((Tricycle)ride[2]).balance();
-        // Exception in thread "main" java.lang.ClassCastException: Tricycle cannot be cast to Bicycle
-        //	at Runner.main(Runner.java:27)
-         ((Bicycle)ride[2]).balance();
+
+        for (Cycle c: ride) {
+            c.balance();
+        }
+
+
+
+
+
+
+
+
     }
 }
