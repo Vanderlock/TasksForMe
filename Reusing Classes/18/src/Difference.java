@@ -1,8 +1,15 @@
 import java.util.Random;
 
 public class Difference {
+
+
+
     private String name;
-    public Difference(String s) { name = s;  }
+
+    public Difference(String s) {
+        name = s;
+    }
+
     static final Test sft = new Test(); // constant reference address
     private final Test ft = new Test();
     static final String SFS = "static final"; // class constant
@@ -11,8 +18,15 @@ public class Difference {
     static final int SFI = rand.nextInt(); // class constant
     private final int fi = rand.nextInt();
 
+
+
+
+
+
     public String toString() {
-        return (name + ": " + sft + ", " + ft + ", " + SFS + ", " + fs + ", " + SFI + ", " + fi);
+        return (name + ": sft:" + sft + " , ft:" + ft + " , SFS:" + SFS + " , fs:" + fs + " , SFI:" + SFI + " , fi:" + fi);
     }
+
+
 
 }

@@ -2,10 +2,13 @@
 // Demonstrate the guarantee that the final must be initialized before use, and that it cannot be changed once initialized.
 
 
-
+//Q: It will work in other class runner?
+//A: Yes if i change field "Cup" to non private
 
 public class BlankFinal {
-    private final Cup cup; // Blank final reference
+    final Cup cup; // Blank final reference
+
+
     // Blank final MUST be initialized in the constructor:
     public BlankFinal() {
         cup = new Cup(1); // Initialize blank final reference

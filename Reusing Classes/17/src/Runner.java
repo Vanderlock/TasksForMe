@@ -6,19 +6,23 @@
 // (provides new definitions using the same method signatures).
 // Note what happens in main( ).
 
-
-
+//Q: What about Amphibian
+//A: Added amphibian and called a static method through the class
+//Q: What will be if you will work without static?
+//A: if "grow" is made non-static then it will be called only through the created object
 
 public class Runner {
     public static void main(String[] args) {
-        Frog frog = new Frog();
+        Amphibian frog = new Frog();
         // call overridden base-class methods
         frog.swim();
         frog.croak();
         frog.eat();
-        // upcast Frog to Amphibian argument
-        frog.grow(frog);
-        // upcast Frog to Amphibian and call Amphibian method
+
+
         Amphibian.grow(frog);
+        Frog.grow(frog);
+
+
     }
 }

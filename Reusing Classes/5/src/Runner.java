@@ -7,6 +7,13 @@
 public class Runner {
     public static void main(String[] args) {
         C c = new C();
+        //
+        //construction begins with base class A.
+        // Therefore, it is initialized before it is available to the constructor of the derived class.
+        // Likewise with B. When creating object "c". Both constructors work out
 
+        //Output:
+        //Constructor A
+        //Constructor B
     }
 }

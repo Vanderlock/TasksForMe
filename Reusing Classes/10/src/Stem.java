@@ -1,3 +1,7 @@
+import components.Component1;
+import components.Component2;
+import components.Component3;
+
 public class Stem extends Root {
     Component1 stem1;
     Component2 stem2;

@@ -1,3 +1,7 @@
+import components.Component1;
+import components.Component2;
+import components.Component3;
+
 public class Root {
     Component1 root1;
     Component2 root2;
