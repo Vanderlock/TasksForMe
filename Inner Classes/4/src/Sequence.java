@@ -4,8 +4,8 @@ import interfaces.Selector;
 
 
 public class Sequence {
-    private Object[] items;
-    private int next = 0;
+    Object[] items;
+    int next = 0;
     public void test() {
         System.out.println("Sequence.test");
     }
@@ -18,7 +18,7 @@ public class Sequence {
         }
     }
     class SequenceSelector implements Selector {
-        private int i = 0;
+        int i = 0;
 
         public boolean end() {
             return i == items.length;
