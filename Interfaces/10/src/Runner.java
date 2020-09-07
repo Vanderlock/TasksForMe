@@ -12,17 +12,24 @@
 
 import enums.Note;
 import instruments.*;
+import interfaces.Instrument;
 import interfaces.Playable;
 
 public class Runner {
+    static void adj(Instrument i){
+        i.adjust();
+    }
     static void tune(Playable p){
         p.play(Note.B_FLAT);
     }
     static void tuneAll(Playable[] e){
         for (Playable p: e) {
+            adj((Instrument) p);
             tune(p);
+
         }
     }
+
 
     public static void main(String[] args) {
         Playable [] orchestra = {
@@ -32,6 +39,8 @@ public class Runner {
                 new Brass(),
                 new Woodwind()
         };
+
         tuneAll(orchestra);
+
     }
 }

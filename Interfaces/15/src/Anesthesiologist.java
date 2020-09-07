@@ -1,7 +1,7 @@
 import interfaces.Workup;
 
 public class Anesthesiologist extends Doctor implements Workup {
-    private int j = 0;
+     int j = 0;
     public void u() {
 
     }

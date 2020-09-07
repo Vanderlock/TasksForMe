@@ -19,6 +19,7 @@ public class Runner {
         b.addU(a1.buildU(), 1);
         b.addU(a2.buildU(), 2);
         b.showArr();
+        System.out.println("/////");
         b.testArr();
         b.eraseU(0);
         b.eraseU(1);

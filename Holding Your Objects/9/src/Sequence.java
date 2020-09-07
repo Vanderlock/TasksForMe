@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Sequence {
-    ArrayList<Object> items = new ArrayList<Object>();
-    void add(Object x){
+    ArrayList<String> items = new ArrayList<String>();
+    void add(String x){
         items.add(x);
     }
     Iterator iterator(){

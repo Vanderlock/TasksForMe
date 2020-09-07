@@ -4,12 +4,13 @@ import interfaces.Selector;
 
 
 public class Sequence {
-    Object[] items;
-    int next = 0;
+    private Object[] items;
+    private int next = 0;
     public void test() {
         System.out.println("Sequence.test");
     }
     public Sequence(int size) {
+
         items = new Object[size];
     }
     public void add(Object x) {
@@ -18,12 +19,14 @@ public class Sequence {
         }
     }
     class SequenceSelector implements Selector {
-        int i = 0;
+        private int i = 0;
 
-        public boolean end() {
+        public boolean end()
+        {
             return i == items.length;
         }
-        public Object current() {
+        public Object current()
+        {
             return items[i];
         }
         public void next() {
@@ -33,10 +36,12 @@ public class Sequence {
         }
         // method to produce outer class reference:
         public Sequence sequence() {
+
             return Sequence.this;
         }
     }
-    public Selector selector() {
+    public Selector selector()
+    {
         return new SequenceSelector();
     }
 }

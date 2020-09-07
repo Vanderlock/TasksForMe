@@ -4,8 +4,6 @@
 // Create an array of Rodent, fill it with different specific types of Rodents,
 // and call your base-class methods to see what happens.
 
-
-
 //Exercise 7:   (1) Change Exercise 9 in the Polymorphism chapter so that Rodent is an interface.
 
 
@@ -13,14 +11,15 @@
 
 public class Runner {
     public static void main(String[] args) {
-        Rodent[] rodents = new Rodent[5];
+        IRodent[] rodents = new IRodent[5];
         RandomRodentGenerator rand = new RandomRodentGenerator();
-        for (Rodent r: rodents) {
+        for (IRodent r: rodents) {
             r = rand.next();
-            System.out.println(r + ";");
             r.eat();
             r.run();
             r.sleep();
         }
+
+
     }
 }

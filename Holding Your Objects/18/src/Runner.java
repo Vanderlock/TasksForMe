@@ -15,7 +15,9 @@ public class Runner {
         cats.put("Remi",new Cat(4));
         cats.put("Belle",new Cat(5));
         cats.put("Charlotte",new Cat(6));
+
         System.out.println(cats);
+        System.out.println("////////////////////");
         Set<String> sortKey = new TreeSet<String>(cats.keySet());
         System.out.println(sortKey);
         Map<String,Cat> sortCat = new LinkedHashMap<String, Cat>();
