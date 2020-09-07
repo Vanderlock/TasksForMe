@@ -10,7 +10,10 @@ public class Runner {
         //cat = null;
         try {
             Cat cat = new Cat();
+
             cat.say("rrr");
+
+
         } catch (Ex1 | Ex2 | Ex3 exception){
             System.err.println(exception);
             exception.printStackTrace(System.out);

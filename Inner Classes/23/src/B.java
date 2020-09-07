@@ -6,22 +6,38 @@ public class B {
         arr = new U[i];
     }
     void addU(U u, int i){
-        arr[i] = u;
+        try {
+            arr[i] = u;
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.err.println("Error: cant add element.");
+            e.printStackTrace();
+        }
+
     }
     void eraseU(int i){
-        arr[i] = null;
+        try {
+            arr[i] = null;
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.err.println("Error: cant erase element.");
+            e.printStackTrace();
+
+        }
+
     }
     void testArr(){
         for (U u: arr) {
-            u.f();
-            u.g();
-            u.toString();
+            if (u != null){
+                u.f();
+                u.g();
+                u.print();
+            }
+
         }
     }
     void showArr(){
         for (U u : arr) {
             if(u != null){
-                System.out.println(u.toString());
+                System.out.println("FULL");
             }else {
                 System.out.println("NULL");
             }

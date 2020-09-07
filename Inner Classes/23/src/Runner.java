@@ -11,18 +11,18 @@
 
 public class Runner {
     public static void main(String[] args) {
-        A a0 = new A();
-        A a1 = new A();
-        A a2 = new A();
-        B b = new B(3);
-        b.addU(a0.buildU(), 0);
-        b.addU(a1.buildU(), 1);
-        b.addU(a2.buildU(), 2);
+        A a = new A();
+        B b = new B(5);
+        b.addU(a.buildU(), 0);
+        b.addU(a.buildU(), 1);
+        b.addU(a.buildU(), 2);
+        b.addU(a.buildU(),4);
+
+        b.showArr();
+        System.out.println("/////");
+        b.eraseU(0);
         b.showArr();
         System.out.println("/////");
         b.testArr();
-        b.eraseU(0);
-        b.eraseU(1);
-        b.showArr();
     }
 }
