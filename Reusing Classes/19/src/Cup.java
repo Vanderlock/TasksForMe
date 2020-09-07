@@ -1,5 +1,5 @@
 public class Cup {
-    private int i;
+    int i;
     Cup(int c) {
         i = c;
     }

@@ -4,25 +4,31 @@
 // and demonstrate the difference between the two.
 
 
+import com.sun.corba.se.impl.resolver.SplitLocalResolverImpl;
+
+import java.util.Random;
+
 public class Runner {
+
     public static void main(String[] args) {
-        Difference d1 = new Difference("d1");
-        Difference d2 = new Difference("d2");
-        Difference d3 = new Difference("d3");
-        System.out.println(d1);
-        System.out.println(d2);
-        System.out.println(d3);
 
 
-        //output
+        Test a = new Test();
+        Test b = new Test();
+        System.out.println("final a.i1: "+ a.i1);
+        System.out.println("final b.i1: "+ b.i1);
+        System.out.println("static final a.i2: "+ a.i2);
+        System.out.println("static final b.i2: "+ Test.i2);//Test.ia better then a.i2
 
-        //d1: sft:Test@1c7c054 , ft:Test@12204a1 , SFS:static final , fs:final , SFI:1040662398 , fi:1545055522
-        //d2: sft:Test@1c7c054 , ft:Test@a298b7 , SFS:static final , fs:final , SFI:1040662398 , fi:-808880560
-        //d3: sft:Test@1c7c054 , ft:Test@14991ad , SFS:static final , fs:final , SFI:1040662398 , fi:96810377
+        //output:
+//        final a.i1: 15
+//        final b.i1: 13
+//        static final a.i2: 18
+//        static final b.i2: 18
+        //in static final fields i can reference a static variable without having ever created an instances of the type,
+        //therefore this variable is common for each created object
+        //in final fields the variable refers only to the created instance of the class
 
-        // final static means that this variable is constant and is associated only with the class itself, that is,
-        // "one constant variable per class", while final means "one constant variable per instance"
 
-        //I cant change constant values
     }
 }
