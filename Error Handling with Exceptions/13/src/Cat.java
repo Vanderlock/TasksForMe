@@ -1,5 +1,5 @@
 public class Cat {
-    void say(String s) throws Ex1, Ex2, Ex3{
+    void say(String s) throws ExAll{
         if (s.equalsIgnoreCase("rrr")){
             throw new Ex1();
         }

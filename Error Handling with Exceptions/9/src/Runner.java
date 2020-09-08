@@ -6,15 +6,14 @@
 
 public class Runner {
     public static void main(String[] args) {
-        //Cat cat = new Cat();
-        //cat = null;
+
         try {
-            Cat cat = new Cat();
 
-            cat.say("rrr");
+            Cat cat2 = new Cat();
+            cat2.say("hello");
 
 
-        } catch (Ex1 | Ex2 | Ex3 exception){
+        } catch (ExAll exception){
             System.err.println(exception);
             exception.printStackTrace(System.out);
         }

@@ -8,12 +8,9 @@ public class Runner {
         try {
             StormyInning si = new StormyInning();
             si.atBat();
-            si.questionableCall();
+            //si.questionableCall();
         } catch(PopFoul e) {
             System.out.println("Pop foul");
-        }catch (UmpireArgument e){
-            //added
-            System.out.println("Umpire argument");
         } catch(RainedOut e) {
             System.out.println("Rained out");
         } catch(BaseballException e) {
@@ -31,6 +28,21 @@ public class Runner {
             System.out.println("Thrown game");
         }catch(RainedOut e) {
             System.out.println("Rained out");
+        } catch(BaseballException e) {
+            System.out.println("Generic baseball exception");
+        }
+        ///
+        try {
+            StormyInning si = new StormyInning();
+            si.atBat();
+            si.questionableCall();
+        } catch(PopFoul e) {
+            System.out.println("Pop foul");
+        } catch(RainedOut e) {
+            System.out.println("Rained out");
+        } catch(UmpireArgument e) {
+            System.out.println(
+                    "Umpire Argument");
         } catch(BaseballException e) {
             System.out.println("Generic baseball exception");
         }

@@ -4,22 +4,21 @@
 
 
 public class Runner {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        Cat cat = new Cat();
         try {
-            Cat cat = new Cat();
-            //cat.say("HeLlO");
-            Cat cat2 = new Cat();
-            cat2 = null;
-            cat2.say("i`m dead cat");
-        } catch (Ex1 | Ex2 | Ex3 exception){
+            cat = null;
+            cat.say("I`m dead cat");
+
+        } catch (ExAll exception){
             System.err.println(exception);
             exception.printStackTrace(System.out);
         }finally {
             System.out.println("All right. Finally work");
-
-
         }
+
+
 
 
     }
