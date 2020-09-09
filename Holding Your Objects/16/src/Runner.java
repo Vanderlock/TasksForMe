@@ -11,61 +11,89 @@ import java.util.*;
 
 
 public class Runner {
-    static void vowelCounter(Set<String> st){
-        Set<Character> vowels = new TreeSet<Character>();
-        Collections.addAll(vowels,'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u');
+    static void vowelCounter(Set<String> stringSet) {
+        Set<Character> vowels = new TreeSet<>();
+        Collections.addAll(vowels, 'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u');
         int allVowels = 0;
-        for (String s: st) {
+        for (String s : stringSet) {
             int count = 0;
-            for (Character v:s.toCharArray()) {
-                if(vowels.contains(v)){
+            for (Character v : s.toCharArray()) {
+                if (vowels.contains(v)) {
                     count++;
-                    allVowels++;
                 }
             }
+            allVowels += count;
             System.out.println(s + ": " + count + " vowels ");
         }
         System.out.println(allVowels + " Total vowels");
 
     }
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        final String FILENAME = "src/test.txt";
-        Set<String> words = new TreeSet<String>();
-        try{
-            BufferedReader in = new BufferedReader(new FileReader(FILENAME));
-            while(in.ready()){
-                String text = in.readLine();
-                String[] tmp = text.split("\\W+");
-                for(String s: tmp){
-                    if(!s.isEmpty()){
-                        words.add(s);
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("select 1 or 2");
+        System.out.println("1 to read wordsFromFile");
+        System.out.println("2 to read wordsFromConsole");
+        if (scanner.hasNextInt()) {
+            switch (scanner.nextInt()) {
+                case 1: {
+                    Set<String> wordsFromFile = getWordsFromFile("src/test.txt");
+                    vowelCounter(wordsFromFile);
+                    break;
+                }
+                case 2: {
+                    System.out.println("Now inter you words in console. To exit enter /exit/");
+                    Set<String> wordsFromConsole = getWordsFromConsole();
+                    vowelCounter(wordsFromConsole);
+                    break;
+                }
+                default: {
+                    System.err.println("There no such command");
+                }
+
+            }
+        }else{
+            System.out.println("Incorrect input message");
+        }
+
+
+    }
+
+    private static Set<String> getWordsFromFile(String fileName) {
+
+        Set<String> wordsFromFile = new TreeSet<>();
+        try (BufferedReader buffFileReader = new BufferedReader(new FileReader(fileName))) {
+            while (buffFileReader.ready()) {
+                String text = buffFileReader.readLine();
+                for (String s : text.split("\\W+")) {
+                    if (!s.isEmpty()) {
+                        wordsFromFile.add(s);
                     }
                 }
             }
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-        System.out.println("Now inter you words in console. To exit enter /exit/");
-        Set<String> inputWords = new TreeSet<String>();
-        while (true){
-            String data = reader.readLine();
-            if (data.equalsIgnoreCase("exit")){
-                break;
-            }else {
-                inputWords.add(data);
+        return wordsFromFile;
+    }
+
+    private static Set<String> getWordsFromConsole() {
+        Set<String> inputWords = new TreeSet<>();
+
+        try (BufferedReader buffConsoleReader = new BufferedReader(new InputStreamReader(System.in))) {
+            while (true) {
+                String data = buffConsoleReader.readLine();
+                if (data.equalsIgnoreCase("exit")) {
+                    break;
+                } else {
+                    inputWords.add(data);
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        System.out.println("Entered words from console: ");
-        System.out.println(inputWords);
 
-        vowelCounter(inputWords);
-        System.out.println("VowelCounter for consoles input");
-        System.out.println("|||||||||||||||||||||||||||||||||||");
-
-
-        vowelCounter(words);
-        System.out.println("Total vowels in text file ");
+        return inputWords;
     }
 }

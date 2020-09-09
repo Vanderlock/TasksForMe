@@ -8,25 +8,37 @@ import java.util.*;
 public class Runner {
     public static void main(String[] args) {
         Map<String, Cat> cats = new HashMap<String, Cat>();
-        cats.put("Marley",new Cat(0));
-        cats.put("Sylvester",new Cat(1));
-        cats.put("Garfield",new Cat(2));
-        cats.put("Hobbes",new Cat(3));
-        cats.put("Remi",new Cat(4));
-        cats.put("Belle",new Cat(5));
-        cats.put("Charlotte",new Cat(6));
+        cats.put("Marley", new Cat());
+        cats.put("Sylvester", new Cat());
+        cats.put("Garfield", new Cat());
+        cats.put("Hobbes", new Cat());
+        cats.put("Remi", new Cat());
+        cats.put("Belle", new Cat());
+        cats.put("Charlotte", new Cat());
 
-        System.out.println(cats);
+
+        //cats
+        for (Map.Entry<String, Cat> pair : cats.entrySet()) {
+            //print HashMap
+            System.out.println("Key " + pair.getKey() + "; Value " + pair.getValue() + "; HashCode " + pair.hashCode());
+
+        }
+
+
         System.out.println("////////////////////");
         Set<String> sortKey = new TreeSet<String>(cats.keySet());
         System.out.println(sortKey);
-        Map<String,Cat> sortCat = new LinkedHashMap<String, Cat>();
+        Map<String, Cat> sortCat = new LinkedHashMap<String, Cat>();
         for (String s : sortKey) {
             System.out.println("Add " + s + " ; ");
-            sortCat.put(s,cats.get(s));
+            sortCat.put(s, cats.get(s));
         }
-        System.out.println(sortCat);
+        //sortCat
+        for (Map.Entry<String, Cat> pair : sortCat.entrySet()) {
+            //print LinkedHashMap
+            System.out.println("Key " + pair.getKey() + "; Value " + pair.getValue() + "; HashCode " + pair.hashCode());
 
+        }
 
     }
 }
