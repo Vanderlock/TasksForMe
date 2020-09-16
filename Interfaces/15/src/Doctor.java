@@ -1,4 +1,4 @@
 public abstract class Doctor {
-    int i = 0;
+    abstract void doc();
 
 }
