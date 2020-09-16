@@ -8,10 +8,10 @@ public class Runner {
     public static void main(String[] args) {
         Cat cat = new Cat();
         try {
-            cat = null;
-            cat.say("I`m dead cat");
+            //cat = null;
+            cat.say("hello");
 
-        } catch (ExAll exception){
+        } catch (Exception exception){
             System.err.println(exception);
             exception.printStackTrace(System.out);
         }finally {

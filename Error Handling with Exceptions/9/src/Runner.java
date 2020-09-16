@@ -13,7 +13,7 @@ public class Runner {
             cat2.say("hello");
 
 
-        } catch (ExAll exception){
+        } catch (Exception exception){
             System.err.println(exception);
             exception.printStackTrace(System.out);
         }
