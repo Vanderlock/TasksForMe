@@ -1,5 +1,5 @@
 public class Tricycle extends Cycle{
-    String name = "Tricycle";
+
     int wheels = 3;
     @Override
     public int getWheels(){
@@ -7,9 +7,7 @@ public class Tricycle extends Cycle{
     }
     @Override
     public void travel(Cycle c) {
-        System.out.println("Tricycle.ride() " + c.getWheels() + " Wheels");
+        System.out.println("Tri"+ super.name +".ride() " + c.getWheels() + " Wheels");
     }
-    public String toString() {
-        return this.name;
-    }
+
 }

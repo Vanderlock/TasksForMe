@@ -8,8 +8,4 @@ public class Cycle {
         System.out.println("No balance");
     }
 
-
-    public String toString() {
-        return this.name;
-    }
 }

@@ -1,9 +1,9 @@
 public class Rat extends Rodent{
-    String name = "Rat";
+
     Characteristic c = new Characteristic("larger");
     Description d = new Description("black");
     Rat() {
-        System.out.println("Rat()");
+        System.out.println("Rat "+ c.s + " and " +d.s);
     }
     void eat() {
         System.out.println("Rat.eat()");
@@ -14,7 +14,5 @@ public class Rat extends Rodent{
     void sleep() {
         System.out.println("Rat.sleep()");
     }
-    public String toString() {
-        return name;
-    }
+
 }

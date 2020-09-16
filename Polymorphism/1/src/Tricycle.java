@@ -1,6 +1,7 @@
 public class Tricycle extends Cycle{
-    String name = "Tricycle";
+
+    @Override
     public String toString() {
-        return this.name;
+        return "Tri"+super.name;
     }
 }

@@ -1,11 +1,9 @@
 public class Bicycle extends Cycle {
-    String name = "Bicycle";
+
     @Override
     public void balance(){
-        System.out.println("Balance bicycle");
+        System.out.println("Balance Bi" + super.name);
     }
 
-    public String toString() {
-        return this.name;
-    }
+
 }

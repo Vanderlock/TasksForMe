@@ -1,9 +1,9 @@
 public class Cycle {
-    String name = "Cycle";
+    String name = "cycle";
     int wheels = 0;
 
-    public void ride(Cycle c) {
-        c.travel(c);
+    public void ride() {
+        travel(this);
         //System.out.println("wheels: " + c.getWheels());
     }
     public void travel(Cycle c) {
@@ -13,7 +13,5 @@ public class Cycle {
         return wheels;
     }
 
-    public String toString() {
-        return this.name;
-    }
+
 }

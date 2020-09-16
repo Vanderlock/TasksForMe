@@ -20,7 +20,7 @@ public class Runner {
         Rodent[] rodents = new Rodent[1];
         for(Rodent r : rodents) {
             r = rand.next();
-            System.out.println(r);
+            r.eat();
         }
     }
 }

@@ -1,10 +1,10 @@
 public class Rodent {
-    String name = "Rodent";
+
     Characteristic c = new Characteristic("has tail");
     Description d = new Description("small mammal");
 
     public Rodent() {
-        System.out.println("Rodent()");
+        System.out.println("Rodent "+ c.s + " and " +d.s);
     }
     void eat(){
         System.out.println("Rodent eat");
@@ -15,7 +15,5 @@ public class Rodent {
     void sleep(){
         System.out.println("Rodent sleep");
     }
-    public String toString(){
-        return name;
-    }
+
 }

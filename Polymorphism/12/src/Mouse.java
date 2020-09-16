@@ -1,9 +1,9 @@
 public class Mouse extends Rodent {
-    String name = "Mouse";
+
     Characteristic c = new Characteristic("likes cheese");
     Description d = new Description("nocturnal");
     Mouse() {
-        System.out.println("Mouse()");
+        System.out.println("Mouse "+ c.s + " and " +d.s);
     }
     void eat() {
         System.out.println("Mouse.eat()");
@@ -14,7 +14,5 @@ public class Mouse extends Rodent {
     void sleep() {
         System.out.println("Mouse.sleep()");
     }
-    public String toString() {
-        return name;
-    }
+
 }

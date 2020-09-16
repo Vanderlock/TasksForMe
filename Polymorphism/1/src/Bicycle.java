@@ -1,6 +1,7 @@
 public class Bicycle extends Cycle {
-    String name = "Bicycle";
+
+    @Override
     public String toString() {
-        return this.name;
+        return "Bi"+super.name;
     }
 }

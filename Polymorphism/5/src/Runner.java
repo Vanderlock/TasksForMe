@@ -12,10 +12,10 @@ public class Runner {
         Cycle b = new Bicycle();
         Cycle t = new Tricycle();
 
-        u.ride(u);
-        b.ride(b);
-        t.ride(t);
-        //b.travel(b);
+        u.ride();
+        b.ride();
+        t.ride();
+
 
     }
 }

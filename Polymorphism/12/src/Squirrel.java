@@ -1,9 +1,9 @@
 public class Squirrel extends  Rodent{
-    String name = "Squirrel";
+
     Characteristic c = new Characteristic("climbs trees");
     Description d = new Description("likes nuts");
     Squirrel() {
-        System.out.println("Squirrel()");
+        System.out.println("Squirrel "+ c.s + " and " +d.s);
     }
     void eat() {
         System.out.println("Squirrel.eat()");
@@ -14,7 +14,5 @@ public class Squirrel extends  Rodent{
     void sleep() {
         System.out.println("Squirrel.sleep()");
     }
-    public String toString() {
-        return name;
-    }
+
 }

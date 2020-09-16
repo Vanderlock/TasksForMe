@@ -1,7 +1,7 @@
 public class Tricycle extends Cycle{
-    String name = "Tricycle";
+    //String name = "Tricycle";
     public String toString() {
-        return this.name;
+        return "Tri" + super.name;
     }
 
 }

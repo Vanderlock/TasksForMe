@@ -5,20 +5,12 @@
 
 
 public class Runner {
-    public static void ride(Cycle c) {
-        c.travel(c);
-    }
-    public static void main(String[] args) {
-//        Unicycle u = new Unicycle();
-//        Bicycle b = new Bicycle();
-//        Tricycle t = new Tricycle();
 
-        Cycle u = new Unicycle();
-        Cycle b = new Bicycle();
-        Cycle t = new Tricycle();
-        ride(u);
-        ride(b);
-        ride(t);
+    public static void main(String[] args) {
+
+        new Unicycle().ride();
+        new Bicycle().ride();
+        new Tricycle().ride();
 
     }
 }

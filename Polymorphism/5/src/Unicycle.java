@@ -1,5 +1,4 @@
 public class Unicycle extends Cycle{
-    String name = "Unicycle";
     int wheels = 1;
     @Override
     public int getWheels(){
@@ -9,11 +8,8 @@ public class Unicycle extends Cycle{
     @Override
     public void travel(Cycle c)
     {
-        System.out.println("Unicycle.ride() " + c.getWheels() + " Wheels");
+        System.out.println("Uni"+ super.name +".ride() " + c.getWheels() + " Wheels");
     }
 
-    public String toString() {
 
-        return this.name;
-    }
 }

@@ -1,6 +1,6 @@
 public class Unicycle extends Cycle{
-    String name = "Unicycle";
+    @Override
     public String toString() {
-        return this.name;
+        return "Uni"+super.name;
     }
 }
