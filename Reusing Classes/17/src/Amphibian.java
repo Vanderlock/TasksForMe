@@ -8,9 +8,6 @@ public class Amphibian {
     void eat(){
         System.out.println("amphibian eat");
     }
-    static void grow(Amphibian a){
-        //this.eat();
-        System.out.println("Amphibian grow");
-    }
+
 
 }

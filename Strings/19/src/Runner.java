@@ -6,12 +6,13 @@ public class Runner {
 
 
     public static void main(String[] args) {
-        String source = FileReaderService.getFileSource("src\\Main.java");
+        String source = FileReaderService.getFileSource("src\\Runner.java");
         String clearSource = FileReaderService.getValues("\".*?\"", source);
         System.out.println(clearSource);
         clearSource = FileReaderService.getValues("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", source);
         System.out.println(clearSource);
-
+        clearSource = FileReaderService.getValues("class[\\s|\\n]([\\w|\\d]+)",source);
+        System.out.println(clearSource);
 
     }
 }

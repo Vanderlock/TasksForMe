@@ -12,9 +12,5 @@ public class Frog extends Amphibian{
         System.out.println("frog eat");
     }
 
-    static void grow(Amphibian a){
 
-        System.out.println("Frog grow");
-
-    }
 }
