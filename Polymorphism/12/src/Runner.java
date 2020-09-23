@@ -17,7 +17,7 @@
 public class Runner {
     public static void main(String[] args) {
         RandomRodentGenerator rand = new RandomRodentGenerator();
-        Rodent[] rodents = new Rodent[1];
+        Rodent[] rodents = new Rodent[3];
         for(Rodent r : rodents) {
             r = rand.next();
             r.eat();

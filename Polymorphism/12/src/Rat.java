@@ -3,7 +3,7 @@ public class Rat extends Rodent{
     Characteristic c = new Characteristic("larger");
     Description d = new Description("black");
     Rat() {
-        System.out.println("Rat "+ c.s + " and " +d.s);
+        System.out.println("Rat constructor");
     }
     void eat() {
         System.out.println("Rat.eat()");

@@ -1,10 +1,11 @@
 public class Rodent {
 
+
     Characteristic c = new Characteristic("has tail");
     Description d = new Description("small mammal");
 
     public Rodent() {
-        System.out.println("Rodent "+ c.s + " and " +d.s);
+        System.out.println("Rodent  constructor" );
     }
     void eat(){
         System.out.println("Rodent eat");

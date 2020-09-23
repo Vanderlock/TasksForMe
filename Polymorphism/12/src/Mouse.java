@@ -1,9 +1,10 @@
 public class Mouse extends Rodent {
 
+
     Characteristic c = new Characteristic("likes cheese");
     Description d = new Description("nocturnal");
     Mouse() {
-        System.out.println("Mouse "+ c.s + " and " +d.s);
+        System.out.println("Mouse constructor");
     }
     void eat() {
         System.out.println("Mouse.eat()");

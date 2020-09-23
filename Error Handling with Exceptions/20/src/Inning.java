@@ -1,6 +1,6 @@
 abstract class Inning {
     Inning() throws BaseballException {}
-    void event() throws BaseballException {
+    void event() {
 
     }
     abstract void atBat() throws Strike, Foul, UmpireArgument;
