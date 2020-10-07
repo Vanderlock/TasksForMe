@@ -3,7 +3,7 @@
 //available for that conversion type.
 
 
-import sun.applet.Main;
+
 
 import java.math.BigInteger;
 import java.util.Formatter;
@@ -11,27 +11,29 @@ import java.util.Formatter;
 public class Runner {
     public static void main(String[] args) {
         Formatter formatter = new Formatter(System.out);
-        char k = 'k';
-        formatter.format("%-3s %-3S %-3c %-3C %-5b %-5B %-3h %-3H%%\n", k, k, k, k, k, k, k, k);
-
-        int v = 121;
-        System.out.println("int v = 121");
-        formatter.format("%-4s000  %-4S000 %-4d000 %-4c %-4C %-5b %-5B %-4x%-4X%-4h%-4H%%\n", v, v, v, v, v, v, v, v, v, v, v);
-
-        BigInteger w = new BigInteger("50000000000000");
-        System.out.println("BigInteger w = 50000000000000");
-        formatter.format("%-15s %-15S %-5b %-5B %-15x %-15X %-5h %-5H%%\n", w, w, w, w, w, w, w, w);
-
-        double x = 179.543;
-        System.out.println("double x = 179.543");
-        formatter.format("%-8s %-8S %-5b %-5B %-15f %-15e %-15E %-12h %-12H%%\n", x, x, x, x, x, x, x, x, x);
-
-        boolean z = false;
-        System.out.println("boolean z = false");
-        formatter.format("%-7s %-7S %-7b %-7B %-7h %-7H%%\n", z, z, z, z, z, z);
-
-        Runner runner = new Runner();
-        System.out.println("Runner runner = new Runner()");
-        formatter.format("%-20s %-20S %-5b %-5B %-10h %-10H%%\n", runner, runner, runner, runner, runner, runner);
+        boolean b = false;
+        System.out.println("boolean: " + b);
+        formatter.format("%2$-5.3b\n%-5.4B\n%-5s\n%-5S\n\n", b, b, b);
+        char a = 'a';
+        System.out.println("char: " + a);
+        formatter.format("%2$-5c\n%-5C\n%-5.4b\n%-5.4B\n%-5h\n%-5H\n\n", a, a, a, a, a);
+        double d = 345.678;
+        System.out.println("double: " + d);
+        formatter.format("%2$-5.4b\n%-5.4B\n%-5.2s\n%-5.2S\n%-5.2f\n%-5.2e\n%-5.2E\n\n" , d,d,d,d,d,d);
+        float f = 345.6F;
+        System.out.println("float: " + f);
+        formatter.format("%-5.2e\n%-5.2E\n%2$-5.4b\n%-5.4B\n%-5.2s\n%-5.2S\n\n", f, f, f, f, f);
+        int i = 120;
+        System.out.println("int: " + i);
+        formatter.format("%2$-5d\n%-5c\n%-5C\n%-5.4b\n%-5.4B\n%-5s\n%-5h\n%-5H\n\n", i, i, i, i, i, i, i);
+        long l = (long)1234567890;
+        System.out.println("long: " + l);
+        formatter.format("%2$-5d\n%-5.4b\n%-5.4B\n%-5.3s\n%-5.3S\n\n", l, l, l, l);
+        short s = (short)12345;
+        System.out.println("short: " + s);
+        formatter.format("%2$-5d\n%-5.4b\n%-5.4B\n%-5.4s\n%-5.4S\n\n", s, s, s, s);
+        Runner r = new Runner();
+        System.out.println("Runner r = new Runner();");
+        formatter.format("%2$-5.4b\n%-5.4B\n%-15s\n%-15S\n%-15h\n\n", r, r, r, r);
     }
 }

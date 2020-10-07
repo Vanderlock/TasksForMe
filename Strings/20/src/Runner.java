@@ -4,14 +4,13 @@
 //works correctly.
 
 
-import java.util.InputMismatchException;
-
 public class Runner {
     public static void main(String[] args) {
-            Test test = new Test("123 23452345 2345,2 223523452345234523452 Hello World");
-            System.out.println(test.toString());
-
-
-
+        Test test = new Test(" 123 3.14 -234.52f 2235234523452345234 -123234.52f Hello World");
+        System.out.println(test.toString());
+        Test test1 = new Test("123321 3.12f 31234563456  3pijkjh 123.412 fdwesg ");
+        System.out.println(test1.toString());
+        Test test2 = new Test("String -123 -12345678 -2133,22F 22,32");
+        System.out.println(test2.toString());
     }
 }

@@ -10,31 +10,38 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        String source = FileReaderService.getFileSource("src/Main.java");
-        String sourceStrings = FileReaderService.getValues("\".*?\"", source);
+        final String COMMENTS_REGEX = "(?:\\/\\*(?:[^*]|(?:\\*+[^*\\/]))*\\*+\\/)|(?:\\/\\/.*)";
+
+        final String STRINGS_REGEX = "\".*?\"";
+        final String IMPORT_CLASS_NAME_REGEX = "import\\s.*\\.([A-Z][a-zA-Z]+)";
+        final String IDENTIFICATION_CLASS_NAME_REGEX = "\\s*class ([A-Z]\\w+)";
+        final String NEW_OBJECT_CLASS_NAME_REGEX = "new\\s+([A-Z]\\w+)";
+        final String STATIC_CALL_CLASS_NAME_REGEX = "\\s+([A-Z]\\w+)\\.";
+
+        final String source = FileReaderService.getFileSource("src/Runner.java");
+        String sourceStrings = FileReaderService.getValues(STRINGS_REGEX, source);
+
         System.out.println("Strings:");
         System.out.println(sourceStrings);
-        String sourceComments = FileReaderService
-                .getValues("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", source);
+        String sourceComments = FileReaderService.getValues(COMMENTS_REGEX, source);
+
         System.out.println("Comments:");
         System.out.println(sourceComments);
+        //comments for test
 //        clearSource = FileReaderService.getValues("class[\\s|\\n]([\\w|\\d]+)",source);
 //        System.out.println(clearSource);
+        //comments for test
 
-        String clearSource = FileReaderService.getClearSource(FileReaderService.STRINGS_REGEX, source);
-        clearSource = FileReaderService.getClearSource(FileReaderService.COMMENTS_REGEX, clearSource);
+        String clearSource = FileReaderService.getClearSource(STRINGS_REGEX, source);
+        clearSource = FileReaderService.getClearSource(COMMENTS_REGEX, clearSource);
 
-        List<String> identificationClassNamesList = new ArrayList<>(
-                FileReaderService.getClassNamesList(FileReaderService.IDENTIFICATION_CLASS_NAME_REGEX, clearSource));
+        List<String> identificationClassNamesList = new ArrayList<>(FileReaderService.getClassNamesList(IDENTIFICATION_CLASS_NAME_REGEX, clearSource));
         System.out.println(identificationClassNamesList);
-        List<String> importClassNamesList = new ArrayList<>(FileReaderService
-                .getClassNamesList(FileReaderService.IMPORT_CLASS_NAME_REGEX, clearSource));
+        List<String> importClassNamesList = new ArrayList<>(FileReaderService.getClassNamesList(IMPORT_CLASS_NAME_REGEX, clearSource));
         System.out.println(importClassNamesList);
-        List<String> newObjectClassNamesList = new ArrayList<>(FileReaderService
-                .getClassNamesList(FileReaderService.NEW_OBJECT_CLASS_NAME_REGEX, clearSource));
+        List<String> newObjectClassNamesList = new ArrayList<>(FileReaderService.getClassNamesList(NEW_OBJECT_CLASS_NAME_REGEX, clearSource));
         System.out.println(newObjectClassNamesList);
-        List<String> staticClassClassNamesList = new ArrayList<>(FileReaderService
-                .getClassNamesList(FileReaderService.STATIC_CALL_CLASS_NAME_REGEX, clearSource));
+        List<String> staticClassClassNamesList = new ArrayList<>(FileReaderService.getClassNamesList(STATIC_CALL_CLASS_NAME_REGEX, clearSource));
         System.out.println(staticClassClassNamesList);
 
         Set<String> set = new LinkedHashSet<>(identificationClassNamesList);
