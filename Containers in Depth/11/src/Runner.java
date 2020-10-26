@@ -8,12 +8,12 @@ import java.util.PriorityQueue;
 public class Runner {
     public static void main(String[] args) {
         PriorityQueue<Box> priorityQueue = new PriorityQueue<>();
-        for (int i = 0; i<10 ; i++){
+        for (int i = 0; i < 10; i++) {
             priorityQueue.add(new Box());
         }
         System.out.println(priorityQueue);
         Box box;
-        while ((box=priorityQueue.poll()) != null){
+        while ((box = priorityQueue.poll()) != null) {
             System.out.println(box);
         }
     }

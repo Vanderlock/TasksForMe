@@ -13,14 +13,23 @@ public class Runner {
     public static void main(String[] args) {
         ArrayList<String> arrayList = new ArrayList<>(Countries.names(10));
         LinkedList<String> linkedList = new LinkedList<>(Countries.names(20).subList(10, 20));
-        System.out.println("fill in array list by iterator");
+        System.out.println("arraylist:");
         for (Iterator<String> iterator = arrayList.iterator(); iterator.hasNext(); ) {
-            System.out.println(iterator.next());
+            System.out.print(" [" + iterator.next() + "] ");
+            if (!iterator.hasNext()) {
+                System.out.println();
+            }
         }
-        System.out.println("fill in linked list by iterator");
+
+        System.out.println("linkedlist");
         for (Iterator<String> iterator = linkedList.iterator(); iterator.hasNext(); ) {
-            System.out.println(iterator.next());
+            System.out.print(" [" + iterator.next() + "] ");
+            if (!iterator.hasNext()) {
+                System.out.println();
+            }
         }
+        System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||");
+
         int arrayListIndex = 0;
         System.out.println("combine two lists, performing insertion through position");
         for (ListIterator<String> listIterator2 = linkedList.listIterator(); listIterator2.hasNext(); ) {
@@ -28,6 +37,8 @@ public class Runner {
             arrayListIndex += 2;
         }
         System.out.println("arrayList = " + arrayList);
+        System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||");
+
         System.out.println("insert is done from the end the first list and moves backward");
         arrayListIndex = 0;
         for (ListIterator<String> listIterator2 = linkedList.listIterator(linkedList.size()); listIterator2.hasPrevious(); ) {

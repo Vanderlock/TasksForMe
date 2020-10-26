@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CountedString {
-    static List<String> created = new ArrayList<>();
-    String s;
-    int id = 0;
+    private static List<String> created = new ArrayList<>();
+    private String s;
+    private int id = 0;
 
     public CountedString(String str) {
         s = str;
@@ -19,13 +19,15 @@ public class CountedString {
     @Override
     public int hashCode() {
         int res = 17;
-        res = 37 * res + s.hashCode();
+        if (s != null) {
+            res = 37 * res + s.hashCode();
+        }
 
         return res;
     }
 
     public boolean equals(Object o) {
-        return o instanceof CountedString && s.equals(((CountedString) o).s) && id == ((CountedString) o).id;
+        return o instanceof CountedString && s.equals(((CountedString) o).s) && s != null && id == ((CountedString) o).id;
     }
 
     @Override

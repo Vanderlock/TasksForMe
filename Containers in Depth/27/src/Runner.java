@@ -15,6 +15,8 @@ public class Runner {
             countedStrings[i] = new CountedString("hi");
             map.put(countedStrings[i],i);
         }
+
+
         for (CountedString countedString : countedStrings){
             System.out.println("Looking up " + countedString);
             System.out.println(map.get(countedString));
