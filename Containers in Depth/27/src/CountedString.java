@@ -21,6 +21,7 @@ public class CountedString {
         int res = 17;
         if (s != null) {
             res = 37 * res + s.hashCode();
+            //res = 37 * res + id;
         }
 
         return res;

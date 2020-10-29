@@ -1,0 +1,46 @@
+1: 
+2: //Exercise 14: (2) Starting with BasicFileOutput.java, write a program that compares
+3: //the performance of writing to a file when using buffered and unbuffered I/O.
+4: 
+5: import java.io.*;
+6: 
+7: 
+8: public class Runner {
+9:     static String file = "Runner.out";
+10:     static String file2 = "Runner.out";
+11: 
+12:     public static void main(String[] args) throws IOException {
+13: 
+14:         BufferedReader in = new BufferedReader(new StringReader(BufferedInputFile.read("src\\Runner.java")));
+15:         // Buffered writer:
+16:         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+17:         int lineCount = 1;
+18:         String s;
+19:         long start = System.nanoTime();
+20:         while((s = in.readLine()) != null ) {
+21:             out.println(lineCount++ + ": " + s);
+22:         }
+23:         long duration = System.nanoTime() - start;
+24:         out.close();
+25: 
+26:         BufferedReader in2 = new BufferedReader(new StringReader(BufferedInputFile.read("src\\Runner.java")));
+27:         // Unbuffered writer:
+28:         PrintWriter out2 = new PrintWriter(new FileWriter(file2));
+29:         lineCount = 1;
+30:         String s2;
+31:         long start2 = System.nanoTime();
+32:         while((s2 = in2.readLine()) != null ) {
+33:             out2.println(lineCount++ + ": " + s2);
+34:         }
+35:         long duration2 = System.nanoTime() - start2;
+36:         out2.close();
+37:         System.out.println("file: \n" + BufferedInputFile.read(file));
+38:         System.out.println("file2: \n" + BufferedInputFile.read(file2));
+39:         System.out.println("Buffered write:   " + duration + " nanoseconds");
+40:         System.out.println("Unbuffered write: " + duration2 + " nanoseconds");
+41: 
+42: 
+43: 
+44:     }
+45: 
+46: }
