@@ -1,46 +1,51 @@
 
-//Exercise 14: (2) Starting with BasicFileOutput.java, write a program that compares
-//the performance of writing to a file when using buffered and unbuffered I/O.
-
 import java.io.*;
 
 
 public class Runner {
-    static String file = "Runner.out";
-    static String file2 = "Runner.out";
+    private static final String IN_FILE = "src/bookExamples/BufferedInputFile.java";
+    private static final String NON_BUF_OUT = "src/resources/BufferedInputFile.txt";
+    private static final String BUF_OUT = "src/resources/BufferedInputFile2.txt";
 
-    public static void main(String[] args) throws IOException {
-
-        BufferedReader in = new BufferedReader(new StringReader(BufferedInputFile.read("src\\Runner.java")));
-        // Buffered writer:
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file)));
-        int lineCount = 1;
-        String s;
-        long start = System.nanoTime();
-        while((s = in.readLine()) != null ) {
-            out.println(lineCount++ + ": " + s);
+    public static long test(Writer out) {
+        long result = 0;
+        try (BufferedReader in = new BufferedReader(new FileReader(new File(IN_FILE)))) {
+            int lineCount = 1;
+            String s;
+            long begin;
+            while ((s = in.readLine()) != null) {
+                begin = System.nanoTime();
+                for (int i = 0; i < 10000; i++) {
+                    out.write(lineCount++ + ": " + s);
+                }
+                result += (System.nanoTime() - begin);
+            }
+            out.close();
+        } catch (IOException e) {
+            e.getMessage();
         }
-        long duration = System.nanoTime() - start;
-        out.close();
-
-        BufferedReader in2 = new BufferedReader(new StringReader(BufferedInputFile.read("src\\Runner.java")));
-        // Unbuffered writer:
-        PrintWriter out2 = new PrintWriter(new FileWriter(file2));
-        lineCount = 1;
-        String s2;
-        long start2 = System.nanoTime();
-        while((s2 = in2.readLine()) != null ) {
-            out2.println(lineCount++ + ": " + s2);
-        }
-        long duration2 = System.nanoTime() - start2;
-        out2.close();
-        System.out.println("file: \n" + BufferedInputFile.read(file));
-        System.out.println("file2: \n" + BufferedInputFile.read(file2));
-        System.out.println("Buffered write:   " + duration + " nanoseconds");
-        System.out.println("Unbuffered write: " + duration2 + " nanoseconds");
-
+        return result;
 
 
     }
 
+    public static void main(String[] args) {
+        long timeBuffer = 0;
+        long timeNot = 0;
+        for (int i = 0; i < 20; i++) {
+            try {
+                FileWriter fileOut = new FileWriter(NON_BUF_OUT);
+                BufferedWriter bufferedOut = new BufferedWriter(new FileWriter(BUF_OUT));
+                if (i >= 5) {
+                    timeBuffer += test(bufferedOut);
+                    timeNot += test(fileOut);
+                }
+            } catch (IOException e) {
+                e.getMessage();
+            }
+
+        }
+        System.out.println("Buffered time:    " + timeBuffer / 100);
+        System.out.println("Not buffered time:    " + timeNot / 100);
+    }
 }

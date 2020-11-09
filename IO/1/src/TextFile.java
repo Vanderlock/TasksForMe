@@ -16,21 +16,12 @@ public class TextFile extends ArrayList<String> {
                 }
             }
         } catch(IOException e) {
-            throw new RuntimeException(e);
+            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
         return sb.toString();
     }
-    // Write a single file in one method call:
-    public static void write(String fileName, String text) {
-        try {
-            try (PrintWriter out = new PrintWriter(
-                    new File(fileName).getAbsoluteFile())) {
-                out.print(text);
-            }
-        } catch(IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
     // Read a file, split by any regular expression:
     public TextFile(String fileName, String splitter) {
 
@@ -39,20 +30,6 @@ public class TextFile extends ArrayList<String> {
         // String at the first position:
         if(get(0).equals("")) remove(0);
     }
-    // Normally read by lines:
-    public TextFile(String fileName) {
-        this(fileName, "\n");
-    }
-    public void write(String fileName) {
-        try {
-            try (PrintWriter out = new PrintWriter(
-                    new File(fileName).getAbsoluteFile())) {
-                for (String item : this)
-                    out.println(item);
-            }
-        } catch(IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
 
 }

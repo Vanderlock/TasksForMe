@@ -3,36 +3,44 @@
 //file based on whether any of the trailing arguments on the command line exist in that file.
 
 
+
+
+
 import java.io.*;
 import java.util.*;
-import java.util.regex.Pattern;
-
 
 public class Runner {
     public static void main(final String[] args) {
         File path = new File(".");
-        final String[] list;
-        if(args.length < 2) {
+        String[] list;
+        System.out.println("args: 1)extension 2)word in file");
+        if(args.length == 0) {
             list = path.list();
-            System.out.println("Usage: enter filtering regex");
-            System.out.println("followed by words, one or more of which each file must contain.");
         }
         else {
             list = path.list(new FilenameFilter() {
-                private final Pattern pattern = Pattern.compile(args[0]);
+                private final String ext = args[0].toLowerCase();
                 public boolean accept(File dir, String name) {
-                    return pattern.matcher(name).matches() &&
-                            !(Collections.disjoint(
-                                    Arrays.asList(args).subList(1, args.length),
-                                    new TextFile(name, "\\W+")
-                            ));
+                    if(name.toLowerCase().endsWith(ext)) {
+                        if(args.length == 1) {
+                            return true;
+                        }
+                        Set<String> words = new HashSet<>(new TextFile(new File(dir, name).getAbsolutePath(), "\\W+"));
+                        for(int i = 1; i < args.length; i++) {
+                            if(words.contains(args[i])) {
+                                return true;
+                            }
+                        }
+                    }
+                    return false;
                 }
             });
         }
         assert list != null;
         Arrays.sort(list, String.CASE_INSENSITIVE_ORDER);
-        for(String dirItem : list)
+        for(String dirItem : list) {
             System.out.println(dirItem);
+        }
     }
-
 }
+

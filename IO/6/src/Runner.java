@@ -1,33 +1,45 @@
+import bookExamples.ProcessFiles;
 
-//Exercise 6: (5) Use ProcessFiles to find all the Java source-code files in a particular
-//directory subtree that have been modified after a particular date.
+import java.util.*;
 import java.io.*;
 import java.text.*;
-import java.util.*;
 
 public class Runner {
-    public static void main(String[] args) {
 
-        DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.US);
-        if(args.length != 2) {
-            System.err.println("Usage: java Runner path(where is the java file) date(M/dd/yyyy)");
-            return;
-        }
-        long tmp = 0;
-        try {
-            df.setLenient(false);
-            tmp = df.parse(args[1]).getTime();
-        } catch(ParseException pe) {
-            pe.printStackTrace();
-            return;
-        }
-        final long modTime = tmp;
+    public static void filterByModifyDate(String[] args, String date) {
         new ProcessFiles(new ProcessFiles.Strategy() {
+            private final long time = getNanoTime(date);
+
             public void process(File file) {
-                if(modTime < file.lastModified()) {
-                    System.out.println(file);
+                try {
+                    if (file.lastModified() > time) {
+                        System.out.println(file + "\t |Last Modified: " + getFormatDate(file.lastModified()));
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
                 }
+
             }
-        }, "java").start(new String[] {args[0]});
+        }, "java").start(args);
+    }
+
+    public static long getNanoTime(String date) {
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date myDate = dateFormat.parse(date);
+            return myDate.getTime();
+        } catch (ParseException pe) {
+            System.err.println("Error with parsing Date!");
+        }
+        return 0L;
+    }
+
+    public static String getFormatDate(long milliTime) {
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        return df.format(milliTime);
+    }
+
+    public static void main(String[] args) {
+        filterByModifyDate(args, "2020-09-29");
     }
 }
