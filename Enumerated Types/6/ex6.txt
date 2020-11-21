@@ -1,0 +1,3 @@
+The advantage that I see is a clear structure. You can see what belongs to what. For example Food.Dessert.TIRAMISU
+
+Преимущество что я вижу - это более понятная структура. Видно что к чему относится. Например Food.Desert.TIRAMISU
